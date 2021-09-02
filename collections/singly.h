@@ -39,7 +39,6 @@
 		SINGLY_LIST(node_typename)                    \
 	}
 
-
 /* Macros for list containers (keep list's length in-memory) */
 
 /* Insert node to the right of what *pos node points to */
@@ -66,11 +65,12 @@
 
 /* Compound initializer for list containers */
 #define slc_compound(cont_type, list, ...) \
-	(cont_type){                           \
+	(cont_type)                            \
+	{                                      \
 		.MCONT_LENGTH_MEMB = 0,            \
 		.dummy.right = &get_dummy(list),   \
-		__VA_ARGS__,                       \
-	};
+		__VA_ARGS__                        \
+	}
 
 /* List container default initializer */
 #define slc_init(list)              \
@@ -78,7 +78,6 @@
 		get_len(list) = 0;          \
 		sg_dummy(&get_dummy(list)); \
 	}
-
 
 /* Macros for simple lists (do not keep list's length in-memory) */
 
@@ -90,14 +89,14 @@
 
 /* Pop the node pointed to by *pos and save it */
 #define sl_get_pop(pos, save) \
-	{                                \
-		save = *pos;                 \
-		mv_next(*pos);               \
+	{                         \
+		save = *pos;          \
+		mv_next(*pos);        \
 	}
 
 /* Compound initializer for simple lists */
 #define sl_compound(cont_type, list, ...) \
-	(cont_type){.dummy.right = &get_dummy(list), __VA_ARGS__,};
+	(cont_type){.dummy.right = &get_dummy(list), __VA_ARGS__}
 
 /* Simple list default initializer */
 #define sl_init(list) sg_dummy(&get_dummy(list));

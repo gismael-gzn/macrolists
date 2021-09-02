@@ -95,7 +95,7 @@ the range [array's base/initial address, initial address + array length]
 (cont_typename){															\
 	.MCONT_LENGTH_MEMB = 0, .slots = initial_size,							\
 	.array = MALLOC_HOOK(siz_allocsz(cont, initial_size)),					\
-	__VA_ARGS__,															\
+	__VA_ARGS__															\
 }																			\
 
 // Reset an array to an empty state

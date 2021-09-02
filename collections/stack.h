@@ -32,7 +32,6 @@
 /* Get first stack's first node */
 #define s_top(stack) (get_head(stack))
 
-
 /* Macros for stack containers (keep stack's length in-memory) */
 
 /* Add node in top of a stack */
@@ -50,11 +49,11 @@
 	}
 
 /* Pop stack's first node and save it */
-#define sc_get_pop(stack, save)    \
-	{                          \
-		save = s_top(stack);   \
-		mv_next(s_top(stack)); \
-		len_decr(stack);       \
+#define sc_get_pop(stack, save) \
+	{                           \
+		save = s_top(stack);    \
+		mv_next(s_top(stack));  \
+		len_decr(stack);        \
 	}
 
 /* Compound initializer for stack containers */
@@ -72,7 +71,6 @@
 		sg_dummy(&get_dummy(stack)) \
 	}
 
-
 /* Macros for simple stacks (do not keep stack's length in-memory) */
 
 /* Add node in top of a stack */
@@ -88,15 +86,15 @@
 	}
 
 /* Pop stack's first node and save it */
-#define sc_get_pop(stack, save) \
-	{                           \
-		save = s_top(stack);    \
-		mv_next(s_top(stack));  \
+#define s_get_pop(stack, save) \
+	{                          \
+		save = s_top(stack);   \
+		mv_next(s_top(stack)); \
 	}
 
 /* Compound initializer for simple stacks */
 #define s_compound(cont_type, cont_ptr, ...) \
-	(cont_type){.dummy.right = &get_dummy(cont_ptr), __VA_ARGS__,}
+	(cont_type) { .dummy.right = &get_dummy(cont_ptr), __VA_ARGS__ }
 
 /* Simple stack default initializer */
 #define s_init(stack) sg_dummy(&get_dummy(stack))

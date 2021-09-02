@@ -65,7 +65,7 @@
 	(cont_typename)                                              \
 	{                                                            \
 		.MCONT_LENGTH_MEMB = 0, .dummy.right = &get_dummy(list), \
-		.dummy.left = &get_dummy(list), __VA_ARGS__,             \
+		.dummy.left = &get_dummy(list), __VA_ARGS__              \
 	}
 
 /* List container default initializer */
@@ -78,14 +78,14 @@
 /* Macros for simple lists (do not keep list's length in-memory) */
 
 /* Insert node before pos */
-#define dl_insb(pos, node)         \
+#define dl_insb(pos, node)               \
 	{                                    \
 		db_link_befor(pos, node)         \
 			db_link_left_and_right(node) \
 	}
 
 /* Insert node after pos */
-#define dl_insa(pos, node)         \
+#define dl_insa(pos, node)               \
 	{                                    \
 		db_link_after(pos, node)         \
 			db_link_left_and_right(node) \
@@ -98,7 +98,7 @@
 	(cont_typename)                                                      \
 	{                                                                    \
 		.dummy.right = &get_dummy(list), .dummy.left = &get_dummy(list), \
-		__VA_ARGS__,                                                     \
+		__VA_ARGS__                                                      \
 	}
 
 /* Simple list default initializer */

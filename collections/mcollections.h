@@ -1,5 +1,5 @@
-#ifndef MLISTS_H__
-#define MLISTS_H__
+#ifndef MCOLLECTIONS_H__
+#define MCOLLECTIONS_H__
 
 #include "array.h"
 #include "queue.h"
@@ -7,4 +7,4 @@
 #include "singly.h"
 #include "doubly.h"
 
-#endif // MLISTS_H__
+#endif // MCOLLECTIONS_H__
